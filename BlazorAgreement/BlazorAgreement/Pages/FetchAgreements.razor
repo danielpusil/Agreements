@@ -1,0 +1,46 @@
+﻿@page "/FetchAgreements"
+@using BlazorAgreement.Data
+@inject AgreementService agreementService
+
+<h1>Blazor agreements</h1>
+
+@if (agreements == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>AgreementId</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var agreement in agreements)
+            {
+            <tr>
+
+                <td>@agreement.AgreementId</td>
+                <td>@agreement.Name</td>
+                <td>@agreement.Description</td>
+                <td>@agreement.Amount</td>
+            </tr>
+
+            }
+        </tbody>
+    </table>
+}
+
+
+@code {
+    List<Agreement> agreements;
+    protected override async Task OnInitializedAsync()
+    {
+        agreements = await agreementService.getAgreetmensAsync();
+    }
+
+}
