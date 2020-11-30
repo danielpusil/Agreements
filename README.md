@@ -1,4 +1,6 @@
-# Agreements# Agreements--- Crear base de datos en servidor local como GeneralDB
+# Agreements
+
+Crear base de datos en servidor local como GeneralDB
 
 --Ejecutar el script script.sql
 
